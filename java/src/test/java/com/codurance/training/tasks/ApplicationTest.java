@@ -32,12 +32,12 @@ public final class ApplicationTest {
     }
 
     @Before public void
-    start_the_application() {
+    startTheApplication() {
         applicationThread.start();
     }
 
     @After public void
-    kill_the_application() throws IOException, InterruptedException {
+    killTheApplication() throws IOException, InterruptedException {
         if (!stillRunning()) {
             return;
         }
@@ -52,7 +52,7 @@ public final class ApplicationTest {
     }
 
     @Test(timeout = 1000) public void
-    it_works() throws IOException {
+    itWorks() throws IOException {
         execute("show");
 
         execute("add project secrets");
@@ -61,10 +61,10 @@ public final class ApplicationTest {
 
         execute("show");
         readLines(
-            "secrets",
-            "    [ ] 1: Eat more donuts.",
-            "    [ ] 2: Destroy all humans.",
-            ""
+                "secrets",
+                "    [ ] 1: Eat more donuts.",
+                "    [ ] 2: Destroy all humans.",
+                ""
         );
 
         execute("add project training");
@@ -89,6 +89,7 @@ public final class ApplicationTest {
                 "training",
                 "    [x] 3: Four Elements of Simple Design",
                 "    [ ] 4: SOLID",
+
                 "    [x] 5: Coupling and Cohesion",
                 "    [x] 6: Primitive Obsession",
                 "    [ ] 7: Outside-In TDD",
